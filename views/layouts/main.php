@@ -60,7 +60,7 @@
 				<header id="head" class="container" role="banner">
 					<div class="row">
 						<div class="col-xs-12 text-center">
-							<p>Расписание автобусов в Зеленогорске</p>
+							<p>{{ headTitle }}</p>
 						</div> <!-- end col -->
 					</div> <!-- end row -->
 				</header> <!-- end header -->
@@ -74,7 +74,7 @@
 							<div class="row">
 								
 								<div id="copyright" class="footer-block col-xs-12 text-center">
-									<p><?= Date('Y') ?> &copy Расписание автобусов в Зеленогорске</p>
+									<p>{{ thisYear }} &copy {{ headTitle }}</p>
 								</div> <!-- end col -->
 							</div> <!-- end row -->
 						</div> <!-- end container -->

@@ -55,3 +55,19 @@
 			catch(e){}
 			};
 
+			var app = new Vue({
+				el: '#wrapper',
+				data: {
+					headTitle: 'Расписание автобусов в Зеленогорске',
+				},
+				methods: {
+
+				},
+				computed: {
+					thisYear: function() {
+						var date = new Date();
+						var year = date.getFullYear();
+						return year;
+					},
+				}
+			});
