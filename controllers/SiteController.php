@@ -6,8 +6,8 @@ use Yii;
 use yii\helpers\Html;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-/*use app\models\Buses;
-use app\models\Stations;
+use app\models\Buses;
+/*use app\models\Stations;
 use app\models\Routes;
 use app\models\Days;
 use app\models\Seasons;
@@ -67,7 +67,12 @@ class SiteController extends Controller
     {
 		$this->view->title = 'Автобусы, Остановки, Такси';
 
-        return $this->render('index');
+
+        $buses = Buses::find()->orderby(['num'=>SORT_ASC])->all();
+
+        return $this->render('index', [
+            'buses' => $buses,
+        ]);
     }
     
 	

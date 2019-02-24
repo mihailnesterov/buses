@@ -59,9 +59,15 @@
 				el: '#wrapper',
 				data: {
 					headTitle: 'Расписание автобусов в Зеленогорске',
+					busSelectedNum: 0,
 				},
 				methods: {
-
+					selectBus: function(num) {
+						console.log('busSelectedNum = ' + num);
+						this.busSelectedNum = num;
+						//alert(this.busSelectedNum);
+						return num;
+					},
 				},
 				computed: {
 					thisYear: function() {
