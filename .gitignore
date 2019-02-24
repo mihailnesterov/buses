@@ -1,0 +1,8 @@
+vendor
+runtime
+web/assets
+template
+sources
+*.png
+*.jpg
+*.sql

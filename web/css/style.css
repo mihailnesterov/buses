@@ -1,0 +1,163 @@
+﻿/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body	/* стили по умолчанию */
+{
+	font-family: 'Roboto', Verdana, Arial, sans-serif;
+	color: #4C4C4C;
+	font-weight: normal;
+	font-size: medium;	/* 14px */
+	background-color: #fff;
+}
+
+h1,h2,h3,h4 {
+	font-weight: 500;
+}
+
+h1 {
+	font-size: 1.8em;
+}
+
+h2 {
+	font-size: 1.6em;
+}
+h3 {
+	font-size: 1.4em;
+}
+h4 {
+	font-size: 1.2em;
+}
+
+
+a {
+	color: #6C6C6C;
+	text-decoration: none; /* убираем подчеркивание */
+}
+a:hover {
+	opacity: 0.8;
+	text-decoration: underline; /* при наведении - подчеркиваем */
+}
+
+#wrapper {
+	border: 1px #e0e0e0 solid;
+}
+
+header {
+	padding: 2em;
+	background-color: #1A1A1A;
+	color: #B2B2B2;
+	text-transform: uppercase;
+}
+
+#nav-buttons {
+	padding: 1em;
+}
+
+#nav-buttons .col-sm-4 {
+	padding: 2em;
+}
+
+#nav-buttons a {
+	width: 150px;
+}
+
+#nav-buttons a:hover {
+	width: 152px;
+}
+
+#nav-buttons a i {
+	margin: 0.2em 0;
+}
+
+footer {
+	background-color: #1A1A1A;
+	color: #B2B2B2;
+}
+footer .footer-block {
+	padding: 2em;
+}
+footer .footer-block h4 {
+	margin-bottom: 1em;
+}
+footer .footer-block ul {
+	line-height: 1.8;
+}
+footer .footer-block ul li a:hover {
+	color: #c0c0c0;
+}
+footer .footer-block ul li i {
+	font-size: 1.2em;
+	text-align: center;
+	width: 20px;
+	margin-right: 1em;
+}
+footer #copyright {
+	font-size: 0.8em;
+	line-height: 1.4;
+	padding-top: 1.5em;
+}
+
+/* media */
+
+@media (max-width:1199px) { /* ноутбуки и средние экраны */
+	
+}
+
+@media (max-width:991px) { /* планшеты */
+	
+}
+
+@media (max-width:767px) {	/* смартфоны */
+	
+}
+
+@media (max-width:543px) {	/* самые маленькие */
+	
+}
