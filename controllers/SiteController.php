@@ -7,11 +7,11 @@ use yii\helpers\Html;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use app\models\Buses;
-/*use app\models\Stations;
+use app\models\Stations;
 use app\models\Routes;
 use app\models\Days;
 use app\models\Seasons;
-use app\models\Taxi;*/
+use app\models\Taxi;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\base\Event;
@@ -67,11 +67,20 @@ class SiteController extends Controller
     {
 		$this->view->title = 'Автобусы, Остановки, Такси';
 
-
         $buses = Buses::find()->orderby(['num'=>SORT_ASC])->all();
+        $stations = Stations::find()->orderby(['id'=>SORT_ASC])->all();
+        $taxi = Taxi::find()->orderby(['id'=>SORT_ASC])->all();
+        $seasons = Seasons::find()->orderby(['id'=>SORT_ASC])->all();
+        $days = Days::find()->orderby(['id'=>SORT_ASC])->all();
+        $routes = Routes::find()->orderby(['id'=>SORT_ASC])->all();
 
         return $this->render('index', [
             'buses' => $buses,
+            'stations' => $stations,
+            'taxi' => $taxi,
+            'seasons' => $seasons,
+            'days' => $days,
+            'routes' => $routes,
         ]);
     }
     
