@@ -59,9 +59,9 @@
 				el: '#wrapper',
 				data: {
 					headTitle: 'Расписание автобусов в Зеленогорске',
-					message: 0,
-					nowDate: '-',
-					nowTime: 0,
+					message: '',
+					nowDate: '',
+					nowTime: '',
 					pageSelect: 1,
 					busSelectedNum: 0,
 					stationSelectedId: 0,
@@ -91,8 +91,8 @@
 						var month = date.getMonth()+1;
 							if(month <= 9) month = '0' + month;
 						date = day + '.' + month + '.' + date.getFullYear();
-						this.nowDate = setDate();
-					return date;
+						this.nowDate = date;
+						return date;
 					},
 					selectBus: function(num) {
 						console.log('busSelectedNum = ' + num);
@@ -124,5 +124,6 @@
 				},
 				mounted() {
 					this.setTime();
+					this.setDate();
 				}
 			});
