@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Java-скрипты
  */
 
@@ -95,22 +95,18 @@
 						return date;
 					},
 					selectBus: function(num) {
-						console.log('busSelectedNum = ' + num);
 						this.busSelectedNum = num;
 						return num;
 					},
 					selectStation: function(id) {
-						console.log('stationSelectedId = ' + id);
 						this.stationSelectedId = id;
 						return id;
 					},
 					selectTaxi: function(id) {
-						console.log('taxiSelectedId = ' + id);
 						this.taxiSelectedId = id;
 						return id;
 					},
 					searchBusByName: function(val) {
-						console.log('searchBusByName = ' + val);
 						this.searchBus = val;
 						return val;
 					},
