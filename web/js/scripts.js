@@ -119,7 +119,7 @@
 					},
 				},
 				mounted() {
-					this.setTime();
-					this.setDate();
+					/*this.setTime();
+					this.setDate();*/
 				}
 			});

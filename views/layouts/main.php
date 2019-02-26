@@ -60,13 +60,13 @@
 				<header id="head" class="container" role="banner">
 					<div class="row">
                         <div class="hidden-xs col-md-3 text-left">
-                            <p>{{ nowDate }}</p>
+                            <p></p>
 						</div> <!-- end col -->
 						<div class="col-xs-7  col-md-6 text-center">
 							<p>{{ headTitle }}</p>
 						</div> <!-- end col -->
                         <div class="col-xs-5 col-md-3 text-right">
-							<p>{{ nowTime }}</p>
+							<p></p>
 						</div> <!-- end col -->
 					</div> <!-- end row -->
 				</header> <!-- end header -->
