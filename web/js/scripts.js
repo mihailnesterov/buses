@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Java-скрипты
  */
 
@@ -63,9 +63,10 @@
 					nowDate: '',
 					nowTime: '',
 					pageSelect: 1,
-					busSelectedNum: 0,
+					busSelectedNum: '',
 					stationSelectedId: 0,
 					taxiSelectedId: 0,
+					busOwner: '',
 					searchBus: '',
 				},
 				methods: {
@@ -97,6 +98,10 @@
 					selectBus: function(num) {
 						this.busSelectedNum = num;
 						return num;
+					},
+					selectOwner: function(owner) {
+						this.busOwner = owner;
+						return owner;
 					},
 					selectStation: function(id) {
 						this.stationSelectedId = id;
