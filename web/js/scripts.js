@@ -111,6 +111,12 @@
 						this.taxiSelectedId = id;
 						return id;
 					},
+					/*searchStation: function() {
+						var that = this;
+						return this.products.filter(function(product) {
+							return product.good.toLowerCase().indexOf(that.inputSearch.toLowerCase()) !== -1;
+						});
+					},*/
 					searchBusByName: function(val) {
 						this.searchBus = val;
 						return val;

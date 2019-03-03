@@ -147,7 +147,7 @@ header {
 }
 #buses-list .buses-block .bus-selected-num {
 	padding: 0.8em;
-	font-size: 1.8em;
+	font-size: 1.6em;
 	border: 1px #ddd solid;
 	background-color: #e9e9e9;
 	margin: 0.2em 0 0.6em 0;
@@ -166,7 +166,7 @@ header {
 
 #buses-list .bus-list-item {
 	padding: 0.8em 0.3em;
-	font-size: 1.8em;
+	font-size: 1.6em;
 	border: 1px #ddd solid;
 	/*margin: 0.2em 0 0.6em 0;*/
 	margin: 0.5em;
@@ -192,6 +192,33 @@ header {
 #stations-list .selected {
 	background-color: #e9e9e9;
 }
+
+#taxi-list .taxi-list-item {
+	padding: 0.8em 0.3em;
+	font-size: 1.8em;
+	border: 1px #ddd solid;
+	/*margin: 0.2em 0 0.6em 0;*/
+	margin: 0.5em 1em;
+	cursor: pointer;
+	transition: .5s;
+}
+#taxi-list .taxi-list-item:hover {
+	background-color: #f8f8f8;
+}
+#taxi-list .taxi-list-item a:hover {
+	text-decoration: none;
+	color:green;
+}
+#taxi-list .selected {
+	padding: 0.8em 0.3em;
+	font-size: 1.8em;
+	border: 1px #ddd solid;
+	/*margin: 0.2em 0 0.6em 0;*/
+	margin: 0.5em;
+	cursor: pointer;
+	transition: .5s;
+}
+
 
 footer {
 	background-color: #1A1A1A;
