@@ -7,14 +7,14 @@ use yii\helpers\Html;
 <main role="main" class="container">
 					
 	<div id="nav-buttons" class="row text-center">
-		<div class="col-sm-4">
-			<a href="#" id="buses" @click.prevent="pageSelect = 1" class="btn btn-default btn-lg1"><i class="fa fa-bus fa-3x"></i><br>АВТОБУСЫ</a>
+		<div class="col-xs-4">
+			<a href="#" id="buses" @click.prevent="pageSelect = 1" class="btn btn-default"><i class="fa fa-bus fa-2x"></i><br><span>АВТОБУСЫ</span></a>
 		</div> <!-- end col -->
-		<div class="col-sm-4">
-			<a href="#" id="stations" @click.prevent="pageSelect = 2" class="btn btn-default btn-lg1"><i class="fa fa-arrow-up fa-3x"></i><br>ОСТАНОВКИ</a>
+		<div class="col-xs-4">
+			<a href="#" id="stations" @click.prevent="pageSelect = 2" class="btn btn-default"><i class="fa fa-arrow-up fa-2x"></i><br><span>ОСТАНОВКИ</span></a>
 		</div> <!-- end col -->
-		<div class="col-sm-4">
-			<a href="#" id="taxi" @click.prevent="pageSelect = 3" class="btn btn-default btn-lg1"><i class="fa fa-taxi fa-3x"></i><br>АВТО</a>
+		<div class="col-xs-4">
+			<a href="#" id="taxi" @click.prevent="pageSelect = 3" class="btn btn-default"><i class="fa fa-taxi fa-2x"></i><br><span>АВТО</span></a>
 		</div> <!-- end col -->
 	</div> <!-- end row -->
 	
@@ -28,8 +28,8 @@ use yii\helpers\Html;
 					<div class="col-xs-12" style="padding: 1em 2em;">
 						<?php foreach( $buses as $bus): ?>
 							<div 
-								@click="selectBus('<?= $bus->num ?>'),selectOwner('<?= $bus->owner ?>')"
-								class="bus-list-item col-xs-3 col-sm-2 btn btn-default" 
+								@click="selectBus('<?= $bus->num ?>'),selectOwner('<?= $bus->owner ?>'),selectComment('<?= $bus->comment ?>')"
+								class="bus-list-item col-xs-5 col-sm-3 col-md-2 btn btn-default" 
 								:class="{ selected : busSelectedNum == '<?= $bus->num ?>'}"
 							>
 								<p class="text-center"><?= $bus->num ?></p>
@@ -49,29 +49,45 @@ use yii\helpers\Html;
 					</div>
 					<p>{{ busOwner }}</p>
 					<hr>
-					<p class="small">text text text text text text</p>
+					<p v-if="busComment != ''" class="bus-comment small">{{ busComment }}</p>
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-9">
-					<div class="stations-block row">
-					<div class="form-group">
-						<input type="text" class="form-control input-lg" id="searchStationsForSelectedBus" placeholder="Введите остановку или улицу...">
-					</div>
+					<div v-if="stationSelectedId == 0" id="selected-bus-stations-list" class="stations-block row">
+						<div class="form-group">
+							<input type="text" class="form-control input-lg" id="searchStationsForSelectedBus" placeholder="Введите остановку или улицу...">
+						</div>
 						<?php foreach( $routes as $route): ?>
 							<div 
 								v-if="busSelectedNum == '<?= $route->bus->num ?>'"
-								@click="selectStation(<?= $route->station->id ?>)"
+								@click="selectStation(<?= $route->station->id ?>, '<?= $route->station->name ?>')"
 								class="bus-list-item" 
-								:class="{ selected : stationSelectedId == <?= $route->station->id ?>}"
+								:class="{ selected : stationSelectedId == <?= $route->station->id ?> }"
 							>
 								<p><?= $route->station->name ?>  /  <?= $route->station->area ?></p>
-							</div> <!-- end col -->
+							</div> <!-- end bus-list-item -->
 						<?php endforeach; ?>
-					</div> <!-- end buses-block -->
+					</div> <!-- end stations-block row -->
+					<div class="selected-station-block row animated fadeIn" v-if="stationSelectedId != 0">
+						<div class="selected-station-item col-xs-12">
+							<h3>{{ stationSelectedName }}</h3>
+							<hr>
+							<?php foreach( $routes as $route): ?>
+								<div 
+									v-if="stationSelectedId == '<?= $route->station->id ?>'"
+									class="route-list-item" 
+									:class="{ selected : routeSelectedId == <?= $route->station->id ?> }"
+								>
+									<h4><?= $route->day->name ?></h4>
+									<p><?= $route->hours ?>  :  <?= $route->minutes ?></p>
+								</div> <!-- end bus-list-item -->
+							<?php endforeach; ?>
+						</div> <!-- end col -->
+					</div> <!-- end selected-station-block row -->
 				</div> <!-- end col -->
-			</div> <!-- end row -->
+			</div> <!-- end buses-block row -->
 		</div> <!-- end col -->
 		
-	</div> <!-- end row -->
+	</div> <!-- end buses-list row -->
 	
 	<div id="stations-list" class="row text-left animated fadeIn" v-if="pageSelect == 2">
 		<div class="form-group">

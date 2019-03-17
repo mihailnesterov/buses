@@ -65,7 +65,16 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-		$this->view->title = 'Автобусы, Остановки, Такси';
+        $this->view->title = 'Автобусы, Остановки, Заказ авто, Такси в Зеленогорске';
+        
+        Yii::$app->view->registerMetaTag([
+            'name' => 'keywords',
+            'content' => 'расписание астобусов, такси, Зеленогорск, Красноярский край'
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => 'Расписание автобусов, такси, заказ авто в Зеленогорске'
+        ]);
 
         $buses = Buses::find()->orderby(['num'=>SORT_ASC])->all();
         $stations = Stations::find()->orderby(['id'=>SORT_ASC])->all();

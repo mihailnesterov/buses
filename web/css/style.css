@@ -114,8 +114,8 @@ header {
 	padding: 1em;
 }
 
-#nav-buttons .col-sm-4 {
-	padding: 2em;
+#nav-buttons .col-xs-4 {
+	padding: 1em;
 }
 
 #nav-buttons a {
@@ -154,6 +154,12 @@ header {
 	cursor: pointer;
 	transition: .5s;
 }
+#buses-list .buses-block .bus-comment {
+	margin: 2.5em 0 2em 0;
+	line-height: 1.5;
+	padding: 1em;
+	border: 1px #ddd solid;
+}
 
 #buses-list .form-group {
 	padding: 1.2em 1em;
@@ -175,6 +181,13 @@ header {
 }
 #buses-list .stations-block .bus-list-item {
 	font-size: 1.2em;
+}
+#buses-list .selected-station-block {
+	margin: 0.3em 0 1em 0;
+}
+#buses-list .selected-station-block .selected-station-item {
+	padding: 1em 0.8em;
+	border: 1px #ddd solid;
 }
 #stations-list .station-list-item {
 	padding: 0.8em 1em;
@@ -259,7 +272,22 @@ footer #copyright {
 }
 
 @media (max-width:767px) {	/* смартфоны */
+	#nav-buttons .col-xs-4 {
+		padding: 0.3em;
+	}
+	#nav-buttons a {
+		width: 90px;
+	}
+	#nav-buttons a span {
+		font-size: 0.7em;
+	}
+	#nav-buttons a:hover {
+		width: 92px;
+	}
 	
+	#nav-buttons a i {
+		margin: 0.2em 0;
+	}
 }
 
 @media (max-width:543px) {	/* самые маленькие */

@@ -62,10 +62,10 @@
                         <div class="hidden-xs col-md-3 text-left">
                             <p></p>
 						</div> <!-- end col -->
-						<div class="col-xs-7  col-md-6 text-center">
+						<div class="col-xs-12  col-md-6 text-center">
 							<p>{{ headTitle }}</p>
 						</div> <!-- end col -->
-                        <div class="col-xs-5 col-md-3 text-right">
+                        <div class="hidden-xs col-xs-3 col-md-3 text-right">
 							<p></p>
 						</div> <!-- end col -->
 					</div> <!-- end row -->

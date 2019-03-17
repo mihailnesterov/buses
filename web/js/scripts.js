@@ -65,8 +65,10 @@
 					pageSelect: 1,
 					busSelectedNum: '',
 					stationSelectedId: 0,
+					stationSelectedName: '',
 					taxiSelectedId: 0,
 					busOwner: '',
+					busComment: '',
 					searchBus: '',
 				},
 				methods: {
@@ -97,14 +99,24 @@
 					},
 					selectBus: function(num) {
 						this.busSelectedNum = num;
+						this.stationSelectedId = 0;
+						/*document.getElementById('selected-bus-stations-list').style.display = 'block';
+						document.getElementsByClassName('selected-station-block')[0].style.display = 'none';*/
 						return num;
 					},
 					selectOwner: function(owner) {
 						this.busOwner = owner;
 						return owner;
 					},
-					selectStation: function(id) {
+					selectComment: function(comment) {
+						this.busComment = comment;
+						return comment;
+					},
+					selectStation: function(id, name) {
 						this.stationSelectedId = id;
+						this.stationSelectedName = name;
+						/*document.getElementById('selected-bus-stations-list').style.display = 'none';
+						document.getElementsByClassName('selected-station-block')[0].style.display = 'block';*/
 						return id;
 					},
 					selectTaxi: function(id) {
