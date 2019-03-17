@@ -6,7 +6,8 @@
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "kartik-v/yii2-mpdf": "dev-master",
-        "yii2assets/yii2-printthis": "*"
+        "yii2assets/yii2-printthis": "*",
+        "yiisoft/yii2-jui": "^2.0"
     },
     "config": {
         "fxp-asset": {
