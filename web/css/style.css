@@ -197,6 +197,14 @@ header {
 	cursor: pointer;
 	transition: .5s;
 }
+#stations-list .bus-list-item {
+	padding: 0.8em 1em;
+	font-size: 1.2em;
+	border: 1px #ddd solid;
+	margin: 0.5em 0;
+	cursor: pointer;
+	transition: .5s;
+}
 #buses-list .bus-list-item:hover,
 #stations-list .station-list-item:hover {
 	background-color: #e9e9e9;

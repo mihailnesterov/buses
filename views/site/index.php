@@ -22,10 +22,11 @@ use yii\helpers\Html;
 		<div class="col-md-12">
 			<div class="buses-block bg-light-gray">
 				<div class="row text-center">
-					<div class="form-group visible-xs col-xs-12">
+					<div class="form-group hidden col-xs-12">
 						<input type="text" @keyup="searchBusByName()" class="form-control input-lg" id="searchBusInput" placeholder="Номер маршрута...">
 					</div>
 					<div class="col-xs-12" style="padding: 1em 2em;">
+					<div class="row">
 						<?php foreach( $buses as $bus): ?>
 							<div 
 								@click="selectBus('<?= $bus->num ?>'),selectOwner('<?= $bus->owner ?>'),selectComment('<?= $bus->comment ?>')"
@@ -35,6 +36,7 @@ use yii\helpers\Html;
 								<p class="text-center"><?= $bus->num ?></p>
 							</div> <!-- end col -->
 						<?php endforeach; ?>
+						</div>
 					</div>
 				</div> <!-- end row -->
 			</div> <!-- end buses-block -->
@@ -53,8 +55,8 @@ use yii\helpers\Html;
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-9">
 					<div v-if="stationSelectedId == 0" id="selected-bus-stations-list" class="stations-block row">
-						<div class="form-group">
-							<input type="text" class="form-control input-lg" id="searchStationsForSelectedBus" placeholder="Введите остановку или улицу...">
+						<div class="form-group hidden">
+							<input type="text" :keyup="searchStation()" class="form-control input-lg" id="searchStationsForSelectedBus" placeholder="Введите остановку или улицу...">
 						</div>
 						<?php foreach( $routes as $route): ?>
 							<div 
@@ -73,7 +75,7 @@ use yii\helpers\Html;
 							<hr>
 							<?php foreach( $routes as $route): ?>
 								<div 
-									v-if="stationSelectedId == '<?= $route->station->id ?>'"
+									v-if="stationSelectedId == '<?= $route->station->id ?>' && busSelectedNum == '<?= $route->bus->num ?>'"
 									class="route-list-item" 
 									:class="{ selected : routeSelectedId == <?= $route->station->id ?> }"
 								>
@@ -90,18 +92,53 @@ use yii\helpers\Html;
 	</div> <!-- end buses-list row -->
 	
 	<div id="stations-list" class="row text-left animated fadeIn" v-if="pageSelect == 2">
-		<div class="form-group">
-			<input style="max-width:600px;" type="text" class="form-control input-lg" id="searchStation" placeholder="Название остановки/улицы...">
-		</div>
-		<?php foreach( $stations as $station): ?>
-			<div 
-				@click="selectStation(<?= $station->id ?>)" 
-				class="station-list-item col-xs-12 col-md-8" 
-				:class="{ selected : stationSelectedId == <?= $station->id ?>}"
-			>
-				<p><?= $station->name ?>  (<?= $station->area ?>)</p>
-			</div> <!-- end col -->
-		<?php endforeach; ?>
+		<div class="col-xs-12 col-md-8">
+			<div class="form-group hidden">
+				<input style="max-width:600px;" type="text" class="form-control input-lg" id="searchStation" placeholder="Название остановки/улицы...">
+			</div>
+			<?php foreach( $stations as $station): ?>
+				<div 
+					@click="selectStation(<?= $station->id ?>)" 
+					class="station-list-item" 
+					:class="{ selected : stationSelectedId == <?= $station->id ?>}"
+				>
+					<p><?= $station->name ?>  (<?= $station->area ?>)</p>
+				</div>
+			<?php endforeach; ?>
+		</div> <!-- end col -->
+
+		<div class="col-xs-12 col-md-4">
+			<div class="row">
+				<?php foreach( $routes as $route): ?>
+					<div 
+						v-if="stationSelectedId == '<?= $route->station->id ?>'"
+						@click="selectBusesByStation('<?= $route->bus->num ?>')"
+						class="bus-list-item col-xs-5 col-sm-4 btn btn-default" 
+						:class="{ selected : busSelectedNum == '<?= $route->bus->num ?>'}"
+					>
+						<p class="text-center"><?= $route->bus->num ?></p>
+					</div> <!-- end bus-list-item -->
+				<?php endforeach; ?>
+			</div> <!-- end row -->
+
+			<div class="selected-station-block row animated fadeIn" v-if="stationSelectedId != 0">
+				<div class="selected-station-item col-xs-12">
+					<hr>
+					<?php foreach( $routes as $route): ?>
+						<div 
+							v-if="stationSelectedId == '<?= $route->station->id ?>' && busSelectedNum == '<?= $route->bus->num ?>'"
+							class="route-list-item" 
+							:class="{ selected : routeSelectedId == <?= $route->station->id ?> }"
+						>
+							<h4><?= $route->day->name ?></h4>
+							<hr>
+							<p><?= $route->hours ?>  :  <?= $route->minutes ?></p>
+						</div> <!-- end bus-list-item -->
+					<?php endforeach; ?>
+				</div> <!-- end col -->
+			</div> <!-- end selected-station-block row -->
+
+		</div> <!-- end col -->
 	</div> <!-- end row -->
 
 	<div id="taxi-list" class="row text-center animated fadeIn" v-if="pageSelect == 3">

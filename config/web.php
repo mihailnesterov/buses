@@ -6,8 +6,8 @@ return [
     'name'=>'Расписание автобусов в Зеленогорске',
     'language' => 'ru-RU',
     'bootstrap' => [
-        'debug',
-        'gii'
+        //'debug',
+        //'gii'
     ],
     'components' => [
         'urlManager' => [

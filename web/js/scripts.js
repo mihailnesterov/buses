@@ -70,6 +70,7 @@
 					busOwner: '',
 					busComment: '',
 					searchBus: '',
+					routeSelectedId: 0,
 				},
 				methods: {
 					setTime: function () {
@@ -100,8 +101,6 @@
 					selectBus: function(num) {
 						this.busSelectedNum = num;
 						this.stationSelectedId = 0;
-						/*document.getElementById('selected-bus-stations-list').style.display = 'block';
-						document.getElementsByClassName('selected-station-block')[0].style.display = 'none';*/
 						return num;
 					},
 					selectOwner: function(owner) {
@@ -115,20 +114,29 @@
 					selectStation: function(id, name) {
 						this.stationSelectedId = id;
 						this.stationSelectedName = name;
-						/*document.getElementById('selected-bus-stations-list').style.display = 'none';
-						document.getElementsByClassName('selected-station-block')[0].style.display = 'block';*/
 						return id;
+					},
+					selectBusesByStation: function(num) {
+						this.busSelectedNum = num;
+						//this.stationSelectedId = 0;
+						return num;
 					},
 					selectTaxi: function(id) {
 						this.taxiSelectedId = id;
 						return id;
 					},
-					/*searchStation: function() {
-						var that = this;
-						return this.products.filter(function(product) {
+					searchStation: function() {
+						//var that = this;
+						//console.log($(this).val());
+
+						/*if( $(this).text().toLowerCase().indexOf($(this).val().toLowerCase()) === -1 ) {
+							
+							console.log($(this).text());
+						}*/
+						/*return this.products.filter(function(product) {
 							return product.good.toLowerCase().indexOf(that.inputSearch.toLowerCase()) !== -1;
-						});
-					},*/
+						});*/
+					},
 					searchBusByName: function(val) {
 						this.searchBus = val;
 						return val;
